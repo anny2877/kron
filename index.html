@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#4A6B7C">
+<title>KRON – Prototipo V2</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"></head><body>
+
+<section class="scr on land" id="land">
+ <div class="top"><img src="assets/kron-blanco.png" alt="KRON"><nav><button onclick="mode('in')">Iniciar sesión</button><button onclick="mode('up')">Registrarse</button></nav></div>
+ <img class="neon" src="assets/neon-n.png" alt="" aria-hidden="true">
+ <div class="lb"><div>
+  <h1>Tus recuerdos, tu control. Organiza tu vida digital con IA.</h1>
+  <ul><li>Cifrado zero-knowledge</li><li>Búsqueda por emociones y por voz</li><li>Narrativas automáticas de tus recuerdos</li></ul>
+  </div>
+  <form id="fin" onsubmit="return login(event)"><h2>Inicia sesión</h2>
+   <input type="email" id="e1" placeholder="Correo electrónico" autocomplete="username" required>
+   <input type="password" id="p1" placeholder="Contraseña" autocomplete="current-password" required>
+   <button class="go">Iniciar sesión</button><div class="lnks"><button type="button" class="lnk" id="lf">¿Olvidaste tu contraseña?</button><button type="button" class="lnk" id="lr">Recuperar cuenta</button></div><div class="err" id="er1"></div></form>
+  <form id="fup" onsubmit="return reg(event)"><h2>Crea tu cuenta</h2>
+   <input type="text" id="n2" placeholder="Nombre" autocomplete="name" maxlength="40" required>
+   <input type="email" id="e2" placeholder="Correo electrónico" autocomplete="username" required>
+   <input type="password" id="p2" placeholder="Crear contraseña" autocomplete="new-password" required>
+   <input type="password" id="p3" placeholder="Confirmar contraseña" autocomplete="new-password" required>
+   <button class="go">Crear cuenta</button><div class="err" id="er2"></div>
+   <label class="ckl"><input type="checkbox" id="acc" required> <span>Acepto los <button type="button" class="lnk" data-doc="terms">Términos y condiciones</button> y la <button type="button" class="lnk" data-doc="priv">Política de privacidad</button>.</span></label></form>
+ </div>
+<button class="dl" onclick="toast('La versión para Windows llegará próximamente')"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8.5" height="8.5" rx="1"/><rect x="12.5" y="3" width="8.5" height="8.5" rx="1"/><rect x="3" y="12.5" width="8.5" height="8.5" rx="1"/><rect x="12.5" y="12.5" width="8.5" height="8.5" rx="1"/></svg><span><b>Descargar para Windows</b><small>Próximamente</small></span></button>
+<div class="kc" id="kc" role="img" aria-label="Carrusel de imágenes de Kron"></div>
+</section>
+
+<section class="scr" id="app"><div class="shell"><div class="scrim" id="scrim" hidden></div>
+ <aside><div class="lg"><img src="assets/isotipo-blanco.png" alt=""><img src="assets/kron-blanco.png" alt="KRON"></div><div id="nav"></div><div class="sp"></div><button class="uchip" id="uchip" aria-label="Mi perfil"><span class="uph" id="uph"></span><span class="unm" id="unm"></span></button><div id="nav2"></div></aside>
+ <div class="mainc">
+  <div class="appbar"><button id="menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button><img src="assets/kron-blanco.png" alt="KRON"></div>
+  <div class="head"><div class="hi"><img class="av" src="assets/avatar-kron.png" alt="Kron, tu asistente virtual"><div class="say"><div id="me"></div><div id="bub">Hola, Emma, yo soy Kron, tu asistente virtual.</div></div><button class="mic" id="mic" aria-label="Hablar"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button><button class="mic" id="spk" aria-label="Voz de Kron" aria-pressed="true"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9zM16 8a5 5 0 0 1 0 8"/></svg></button></div>
+   <div class="box"><textarea id="q" maxlength="300" placeholder="Pídeme un recuerdo…"></textarea><button id="add" aria-label="Adjuntar fotos, videos, música o documentos">+</button><button id="snd" aria-label="Enviar">↑</button></div></div>
+  <div class="pnl" id="pnl"></div>
+ </div></div></section>
+<div id="toast"></div>
+
+<script src="app.js"></script>
+<script src="carrusel.js"></script></body></html>
